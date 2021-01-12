@@ -23,15 +23,26 @@ public class ValidationModel extends AppCompatActivity {
 
     public void validacionString(String texto){
         int largo = texto.length();
-        if (largo > 0 && largo < 6) {
+        if (largo == 0) {
+            estadoClave = Color.WHITE;
+            mensaje = "";
+        } else if (largo > 0 && largo < 6) {
             estadoClave = Color.RED;
             mensaje = "Clave muy débil";
         } else if (largo > 6 && largo < 11) {
-            estadoClave = Color.YELLOW;
-            mensaje = "Clave débil";
+            for (int i = 0; i < largo; i++) {
+                if (Character.isUpperCase(texto.charAt(i)) == true) {
+                    estadoClave = Color.YELLOW;
+                    mensaje = "Clave débil";
+                }
+            }
         } else if (largo > 11) {
-            estadoClave = Color.GREEN;
-            mensaje = "Clave fuerte";
+            for (int i = 0; i < largo; i++) {
+                if (Character.isUpperCase(texto.charAt(i)) == true) {
+                    estadoClave = Color.GREEN;
+                    mensaje = "Clave fuerte";
+                }
+            }
         }
     }
 }
