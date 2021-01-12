@@ -12,4 +12,12 @@ public class Presentator {
     public void showSecurityPassword(String clave){
         validationModel.validacionString(clave);
     }
+
+    public int colorPassword() {
+        return validationModel.getEstadoClave();
+    }
+
+    public String mensajePassword() {
+        return validationModel.getMensaje();
+    }
 }
